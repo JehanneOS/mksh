@@ -25,12 +25,12 @@ static const char __rcsid[] __attribute__((__used__)) =
     "$MirOS: src/bin/mksh/jehanne.c,v 1.1 2017/12/22 16:30:00 tg Exp $";
 
 #include <u.h>
-#include <lib9.h>
+#include <libc.h>
 #include <posix.h>
 
 void
 __application_newlib_init(int argc, char *argv[])
 {
-	rfork(RFFDG | RFREND | RFNOTEG);
+	sys_rfork(RFFDG | RFREND | RFNOTEG);
 	libposix_emulate_SIGCHLD();
 }
